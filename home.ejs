@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- O que faz: Define o título da aba -->
+  <!-- Explicação: O nome que aparece na aba do navegador -->
+  <title>Home</title>
+
+  <!-- O que faz: Liga o arquivo CSS -->
+  <!-- Explicação: Permite usar o style.css para estilizar a página -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- O que faz: Exibe uma variável enviada pelo app.js -->
+  <!-- Explicação: O <%= %> mostra o valor da variável na tela -->
+  <h1><%= titulo %></h1>
+
+
+  <!-- O que faz: Mostra uma imagem -->
+  <!-- Explicação: Pode ser uma imagem da internet ou da pasta public -->
+  <img src="https://via.placeholder.com/300" alt="Imagem exemplo">
+
+
+  <!-- O que faz: Título da lista -->
+  <!-- Explicação: Apenas um subtítulo -->
+  <h2>Lista de tecnologias</h2>
+
+
+  <ul>
+
+    <!-- O que faz: Percorre o vetor tecnologias -->
+    <!-- Explicação: Para cada item do vetor, cria um <li> -->
+    <% tecnologias.forEach(function(tecnologia) { %>
+
+      <!-- O que faz: Mostra cada tecnologia -->
+      <!-- Explicação: O valor atual da variável tecnologia -->
+      <li><%= tecnologia %></li>
+
+    <!-- O que faz: Fecha o forEach -->
+    <!-- Explicação: Final do laço de repetição -->
+    <% }); %>
+
+  </ul>
+
+
+  <h2>Formulário</h2>
+
+  <!-- O que faz: Envia os dados para a rota /resposta -->
+  <!-- Explicação: Quando clicar no botão, vai para o app.js -->
+  <form action="/resposta" method="POST">
+
+    <label>Digite seu nome:</label>
+
+    <!-- O que faz: Campo para digitar o nome -->
+    <!-- Explicação: O name="nome" será usado no req.body.nome -->
+    <input type="text" name="nome" required>
+
+
+    <label>Digite seu curso:</label>
+
+    <!-- O que faz: Campo para digitar o curso -->
+    <!-- Explicação: O name="curso" será usado no req.body.curso -->
+    <input type="text" name="curso" required>
+
+
+    <!-- O que faz: Botão para enviar -->
+    <!-- Explicação: Ao clicar, envia os dados para /resposta -->
+    <button type="submit">Enviar</button>
+
+  </form>
+
+
+  <!-- O que faz: Cria uma variável no EJS -->
+  <!-- Explicação: <% %> executa JavaScript mas não mostra nada -->
+  <% const mensagem = "Este texto foi criado usando EJS."; %>
+
+
+  <!-- O que faz: Mostra a variável mensagem -->
+  <!-- Explicação: <%= %> exibe o valor da variável -->
+  <p><%= mensagem %></p>
+
+</body>
+</html>
